@@ -249,7 +249,7 @@ function handleMessageEvent(event) {
                 "type": "carousel",
                 "columns": [
                     {
-                        "thumbnailImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcMz1Cm7hKlQ2-HiLSKDk9CY6eI-7ncGFYPSDxgs-5wUkT2KL&s",
+                        "thumbnailImageUrl": "https://obs.line-scdn.net/0hMTvHoUsjEntLMTj4h5VtLHFnERR4XQF4LwdDeBdfTE80VVB_dwBfFWhkTUk2AFUlJQBeGmo1CUo2AlR5fgNf/w644",
                         "title": "this is menu",
                         "text": "description",
                         "actions": [
@@ -271,7 +271,7 @@ function handleMessageEvent(event) {
                         ]
                     },
                     {
-                        "thumbnailImageUrl": "https://www.fungjaizine.com/wp-content/uploads/2019/06/medium-athah-anime-jojo-s-bizarre-adventure-the-hand-okuyasu-original-imaf9hc8zsjsbk5t.jpeg",
+                        "thumbnailImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLA2gqpVUZA85YI6TQ9XemSBIB3gE32aoTy2j5HgP8mIt4BvmTsQ&s",
                         "title": "this is menu",
                         "text": "description",
                         "actions": [
