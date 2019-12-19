@@ -8,26 +8,33 @@ const line = require('@line/bot-sdk');
 
 require('dotenv').config();
 
-const app = express();
+const app = express();//libary in node js framework
 
 const config = {
-    channelAccessToken: 'EuztLcgzicM+DSpHCAivG7sxAvE/ZbViZmu/Fpxzua6YKcyMtDamhO/ImNx8rh7FzQ6yj5+ZNtornHl/YKtSO43tn/PiXhHveJTTyheu35xlqbqraCGtaPxCkeio2Y5GP0IU98KMinJeYYP/i3Y7iwdB04t89/1O/w1cDnyilFU=',
-    channelSecret: "974568fe6154f8eaeb19985e0847506c"
+    channelAccessToken: 'EuztLcgzicM+DSpHCAivG7sxAvE/ZbViZmu/Fpxzua6YKcyMtDamhO/ImNx8rh7FzQ6yj5+ZNtornHl/YKtSO43tn/PiXhHveJTTyheu35xlqbqraCGtaPxCkeio2Y5GP0IU98KMinJeYYP/i3Y7iwdB04t89/1O/w1cDnyilFU=',//เวลาส่งมันจะส่งโทเค่นนี้ไปด้วย แล้วเอาไปเทียบ
+    channelSecret: "974568fe6154f8eaeb19985e0847506c"//คีย์ดูว่ามันตรงกันไหมถึงจะตอบข้อความกลับไป เกิดขึ้นมากับตอนสร้าง
 };
 
-const client = new line.Client(config);
-
-app.post('/webhook', line.middleware(config), (req, res) => {
+const client = new line.Client(config);//สร้างออบเจค โดย รับคีย์configเข้ามา
+//post ข้อความอยู่หลังอ่านไม่ออก อยู่ในกล่องไม่มีใครเห็น
+//get ข้อความแบบเห็นได้หมด
+// middleware ด่านตรวจคนเข้าเมือง เอาโทเค่นที่เข้ามาไปเช็คว่าที่เข้ามามันตรงกันไหม คนที่ส่งข้อมูลมาต้องมาจากไลน์ที่เราสร้างเท่านั้น
+app.post('/webhook', line.middleware(config), (req, res) => {//webhook ส่งแอคเซทโทเค่นมา
     Promise
-        .all(req.body.events.map(handleEvent))
+        .all(req.body.events.map(handleEvent))//bodyคือข้อความ  eventของเราเป็นarrayอยู่ mapเป็นรูปย่อของlib เอาอาเรช่องแรกไปใช้
         .then((result) => res.json(result));
 });
-
+//ใช้postเพราะ ผู้ส่งไลน์ไม่ต้องการให้ใครเห็น
+//ใช้เป็นตัวเช็ค
+app.get('/pond', function (req,res){
+    console.log('pond');
+    res.send('pond1');
+});
 
 function handleEvent(event) {
 
     console.log(event);
-    if (event.type === 'message' && event.message.type === 'text') {
+    if (event.type === 'message' && event.message.type === 'text') {//ถ้าเป็นรูปหรือติ้กเกอร์ให้ออกข้างนอก
         handleMessageEvent(event);
     } else {
         return Promise.resolve(null);
@@ -215,7 +222,7 @@ function handleMessageEvent(event) {
             }
         }
 //พิมhelloมาจะมีช่องขึ้นให้เลือก 
-    } else if (eventText === 'hello') {
+    } else if (eventText === 'hi') {
         msg = {
             "type": "template",
             "altText": "this is a confirm template",
@@ -290,7 +297,7 @@ function handleMessageEvent(event) {
         }
     }
 
-    return client.replyMessage(event.replyToken, msg);
+    return client.replyMessage(event.replyToken, msg);//client คือบอทที่จะตอบกลับไปข้อความตามข้างบน
 }
 //เลือกportไม่เกิน2ล้าน
 app.set('port', (process.env.PORT || 5000));
