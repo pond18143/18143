@@ -1,5 +1,5 @@
 {
-  "name": "nonglinebot",
+  "name": "18143",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gie3d/nonglinebot.git"
+    "url": "git+https://github.com/pond18143/18143"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gie3d/nonglinebot/issues"
+    "url": "https://github.com/pond18143/18143/issues"
   },
-  "homepage": "https://github.com/gie3d/nonglinebot#readme",
+  "homepage": "https://github.com/pond18143/18143/blob/master/README.md",
   "dependencies": {
     "@line/bot-sdk": "^2.0.0",
     "@sendgrid/mail": "^6.4.0",

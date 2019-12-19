@@ -222,7 +222,7 @@ function handleMessageEvent(event) {
             }
         }
 //พิมhelloมาจะมีช่องขึ้นให้เลือก 
-    } else if (eventText === 'hi') {
+    } else if (eventText === 'hello') {
         msg = {
             "type": "template",
             "altText": "this is a confirm template",
